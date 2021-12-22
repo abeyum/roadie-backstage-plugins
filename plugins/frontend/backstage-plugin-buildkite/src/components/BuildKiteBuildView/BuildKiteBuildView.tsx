@@ -109,7 +109,7 @@ const ActionsList: FC<{ jobs: BuildkiteJob[]}> = ({
   const classes = useStyles();
   return (
     <>
-      {jobs.map((job: BuildkiteJob) => (
+      {jobs.filter(job => job.type === 'script').map((job: BuildkiteJob) => (
         <ActionOutput
         className={pickClassName(classes, job)}
           job={job}
